@@ -1,7 +1,3 @@
-package board;
-
-import java.io.FileNotFoundException;
-
 /**
  * This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -14,8 +10,21 @@ import java.io.FileNotFoundException;
  *     You should have received a copy of the GNU General Public License
  *     along with this program.
  */
+
+package board;
+
+import java.io.FileNotFoundException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class App {
-    public static void main(String [] args) throws CloneNotSupportedException, FileNotFoundException, Exceptions.NoFileException {
+    public static void main(String [] args) throws CloneNotSupportedException,
+            Exceptions.NoFileException, SQLException {
         SudokuBoard board = new SudokuBoard();
         System.out.println("Czysta tablica: ");
         board.printBoard();
@@ -46,6 +55,17 @@ public class App {
         BoardRepository repo = new BoardRepository(board);
         SudokuBoard board33 = repo.createInstance();
         board33.removeFields(Difficulty.Easy);
+        Database base1 = new Database("baza4");
+        //base1.createTable("board");
+        //base1.insert("board", "00", board.getNumber(0,0));
+        //base1.insert("board", "01", board.getNumber(0,1));
+        //System.out.println(base1.select("board", 0, 1));
+        System.out.println(base1.nextSave());
+        for (int i = 0; i < 4; i++) {
+            String nextSave = String.valueOf(base1.nextSave());
+            base1.createTable("board" + nextSave);
+            base1.createTable("originalBoard" + nextSave);
+        }
     }
 }
 

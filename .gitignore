@@ -15,3 +15,6 @@ target/
 .DS_Store
 out/
 Save.*
+bases
+/bases
+bases/*

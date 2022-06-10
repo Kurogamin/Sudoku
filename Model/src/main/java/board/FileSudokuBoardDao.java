@@ -75,7 +75,7 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
 
     public SudokuBoard[] read2() throws Exceptions.NoFileException {
 
-        SudokuBoard boards[] = new SudokuBoard[2];
+        SudokuBoard [] boards = new SudokuBoard[2];
         try (FileInputStream fileInput = new FileInputStream(fileName);
              ObjectInputStream objectInput = new ObjectInputStream(fileInput)
         ) {

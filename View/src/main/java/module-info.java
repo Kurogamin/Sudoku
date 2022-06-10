@@ -16,6 +16,7 @@ module view {
     requires javafx.fxml;
     requires board;
     requires log4j;
+    requires java.sql;
 
 
     opens view to javafx.fxml;

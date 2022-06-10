@@ -11,15 +11,18 @@
  *     along with this program.
  */
 
-module board {
-    requires com.google.common;
-    requires org.apache.commons.lang3;
-    requires java.desktop;
-    requires javafx.base;
-    requires java.sql;
-    requires org.xerial.sqlitejdbc;
+package board;
 
-    exports board;
-    opens board;
 
+import java.util.ListResourceBundle;
+
+public class Authors extends ListResourceBundle {
+    public Object[][] getContents() {
+        return contents;
+    }
+
+    private Object[][] contents = {
+            { "author1", "Mateusz Kowalski" },
+            { "author2", "Jakub Glegoła"},
+    };
 }

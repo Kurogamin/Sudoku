@@ -46,5 +46,6 @@ class BacktrackingSudokuSolverTest {
     void checkNumber() {
         SudokuSolver solver = new BacktrackingSudokuSolver();
         assertTrue(true);
+        System.out.println(System.getProperty("user.dir"));
     }
 }

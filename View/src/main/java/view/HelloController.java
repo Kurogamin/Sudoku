@@ -91,6 +91,7 @@ public class HelloController implements Initializable {
 
     public void choiceBoxButtonPushed() {
         if (cbDifficulty.getValue() != null) {
+            mainButton.setText(bundle.getString("startGame"));
             if (locale.getLanguage().equals("en")) {
                 difficulty = Difficulty.valueOf(cbDifficulty.getValue());
                 welcomeText.setText(bundle.getString("difficulty") + ": "
