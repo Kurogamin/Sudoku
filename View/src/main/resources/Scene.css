@@ -1,0 +1,8 @@
+.label {
+    -fx-alignment: center;
+    -fx-background-color: none;
+}
+
+.label:hover {
+    -fx-background-color: #ba8080;
+}
